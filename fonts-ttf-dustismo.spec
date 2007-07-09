@@ -26,8 +26,6 @@ Obsoletes:	dustismo-fonts
 Provides:	dustismo-fonts
 BuildRequires:	fontconfig
 BuildRequires:	freetype-tools
-Requires(post):		chkfontpath
-Requires(postun):	chkfontpath
 Requires(post): fontconfig
 Requires(postun): fontconfig
 
@@ -55,24 +53,25 @@ mv "It wasn't me.ttf" It_wasn_t_me.ttf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/fonts/Dustismo
-
-cp -f *.ttf $RPM_BUILD_ROOT%{_datadir}/fonts/Dustismo
-
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/fonts/ttf/dustismo
+cp -f *.ttf $RPM_BUILD_ROOT%{_datadir}/fonts/ttf/dustismo
 {
-    pushd $RPM_BUILD_ROOT/usr/share/fonts/Dustismo
+    pushd $RPM_BUILD_ROOT%{_datadir}/fonts/ttf/dustismo
     ttmkfdir > fonts.dir
     cp fonts.dir fonts.scale
     popd
 }
 
+mkdir -p %{buildroot}%_sysconfdir/X11/fontpath.d/
+ln -s ../../..%_datadir/fonts/ttf/dustismo \
+	%{buildroot}%_sysconfdir/X11/fontpath.d/ttf-dustismo:pri=50
+
+
 %post
-[ -x %_sbindir/chkfontpath ] && %{_sbindir}/chkfontpath -q -a %{_datadir}/fonts/Dustismo
 [ -x %_bindir/fc-cache ] && %{_bindir}/fc-cache 
 
 %postun
 if [ "$1" = "0" ]; then
-  [ -x %_sbindir/chkfontpath ] && %{_sbindir}/chkfontpath -q -r %{_datadir}/fonts/Dustismo
   [ -x %_bindir/fc-cache ] && %{_bindir}/fc-cache 
 fi
 
@@ -82,7 +81,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(0644,root,root,0755)
 %doc installation.txt license.txt
-%dir %_datadir/fonts/Dustismo
-%config(noreplace) %{_datadir}/fonts/Dustismo/fonts.dir
-%config(noreplace) %{_datadir}/fonts/Dustismo/fonts.scale
-%{_datadir}/fonts/Dustismo/*.ttf
+%dir %_datadir/fonts/ttf/dustismo
+%config(noreplace) %{_datadir}/fonts/ttf/dustismo/fonts.dir
+%config(noreplace) %{_datadir}/fonts/ttf/dustismo/fonts.scale
+%{_datadir}/fonts/ttf/dustismo/*.ttf
+%{_sysconfdir}/X11/fontpath.d/ttf-dustismo:pri=50
