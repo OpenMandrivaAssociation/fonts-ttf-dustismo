@@ -1,7 +1,7 @@
 Summary:	A small collection of Truetype fonts (GPL)
 Name:		fonts-ttf-dustismo
 Version:	2.0
-Release:	%mkrel 6
+Release:	%mkrel 8
 
 Source0:	Dustismo.tgz
 Source1:	Abogada_loco.zip
