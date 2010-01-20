@@ -1,7 +1,7 @@
 Summary:	A small collection of Truetype fonts (GPL)
 Name:		fonts-ttf-dustismo
 Version:	2.0
-Release:	%mkrel 9
+Release:	%mkrel 10
 
 Source0:	Dustismo.tgz
 Source1:	Abogada_loco.zip
@@ -26,8 +26,6 @@ Obsoletes:	dustismo-fonts
 Provides:	dustismo-fonts
 BuildRequires:	fontconfig
 BuildRequires:	freetype-tools
-Requires(post): fontconfig
-Requires(postun): fontconfig
 
 %description 
 A small collection of Truetype fonts released under the GPL.
@@ -66,14 +64,6 @@ mkdir -p %{buildroot}%_sysconfdir/X11/fontpath.d/
 ln -s ../../..%_datadir/fonts/ttf/dustismo \
 	%{buildroot}%_sysconfdir/X11/fontpath.d/ttf-dustismo:pri=50
 
-
-%post
-[ -x %_bindir/fc-cache ] && %{_bindir}/fc-cache 
-
-%postun
-if [ "$1" = "0" ]; then
-  [ -x %_bindir/fc-cache ] && %{_bindir}/fc-cache 
-fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
