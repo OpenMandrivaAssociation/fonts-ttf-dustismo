@@ -22,6 +22,7 @@ Group:		System/Fonts/True type
 URL:		http://www.dustismo.com
 BuildRoot:	%_tmppath/%name-%version-%release-root
 BuildArch:	noarch
+BuildRequires: fontconfig
 Obsoletes:	dustismo-fonts
 Provides:	dustismo-fonts
 BuildRequires:	fontconfig
