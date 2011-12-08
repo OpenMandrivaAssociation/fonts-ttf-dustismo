@@ -35,18 +35,18 @@ high quality, all purpose, sans serif font.
 
 %prep
 %setup -q -c %name-%version
-unzip -o %SOURCE2 -d $RPM_BUILD_DIR/%name-%version
-unzip -o %SOURCE3 -d $RPM_BUILD_DIR/%name-%version
-unzip -o %SOURCE4 -d $RPM_BUILD_DIR/%name-%version
-unzip -o %SOURCE5 -d $RPM_BUILD_DIR/%name-%version
-unzip -o %SOURCE6 -d $RPM_BUILD_DIR/%name-%version
-unzip -o %SOURCE7 -d $RPM_BUILD_DIR/%name-%version
-unzip -o %SOURCE8 -d $RPM_BUILD_DIR/%name-%version
-unzip -o %SOURCE9 -d $RPM_BUILD_DIR/%name-%version
-unzip -o %SOURCE10 -d $RPM_BUILD_DIR/%name-%version
-unzip -o %SOURCE11 -d $RPM_BUILD_DIR/%name-%version
-unzip -o %SOURCE12 -d $RPM_BUILD_DIR/%name-%version
-unzip -o %SOURCE13 -d $RPM_BUILD_DIR/%name-%version
+unzip -o %SOURCE2 -d %{_builddir}/%name-%version
+unzip -o %SOURCE3 -d %{_builddir}/%name-%version
+unzip -o %SOURCE4 -d %{_builddir}/%name-%version
+unzip -o %SOURCE5 -d %{_builddir}/%name-%version
+unzip -o %SOURCE6 -d %{_builddir}/%name-%version
+unzip -o %SOURCE7 -d %{_builddir}/%name-%version
+unzip -o %SOURCE8 -d %{_builddir}/%name-%version
+unzip -o %SOURCE9 -d %{_builddir}/%name-%version
+unzip -o %SOURCE10 -d %{_builddir}/%name-%version
+unzip -o %SOURCE11 -d %{_builddir}/%name-%version
+unzip -o %SOURCE12 -d %{_builddir}/%name-%version
+unzip -o %SOURCE13 -d %{_builddir}/%name-%version
 
 mv "It wasn't me.ttf" It_wasn_t_me.ttf
 
