@@ -19,7 +19,7 @@ Source12:	Wargames.zip
 Source13:	Winks.zip
 License:	GPL
 Group:		System/Fonts/True type
-URL:		http://www.dustismo.com
+URL:		https://www.dustismo.com
 BuildRoot:	%_tmppath/%name-%version-%release-root
 BuildArch:	noarch
 BuildRequires: fontconfig
